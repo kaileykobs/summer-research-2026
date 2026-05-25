@@ -1,4 +1,4 @@
-# summer-research-2026
+# Summer Research 2026
 ## What is Hardware Security  
 
 - Hardware security focuses on protecting physical computing components such as integrated circuits (ICs), processors, and embedded systems from attackers and tampering. 
