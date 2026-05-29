@@ -3,13 +3,13 @@
 
 - Hardware security focuses on protecting physical computing components such as integrated circuits (ICs), processors, and embedded systems from attackers and tampering. 
 
-- we heavily relie on 3rd party resources which can create security risks. This weakens assumptions that attackers cannot access the isolated IC supply chain. For example, 3rd partie resources may insert hardware trojans into chips  
-- hardware secuirty is basically that we want to make it harder for attackers to hurt our hardware 
+- We heavily relie on 3rd party resources which can create security risks. This weakens assumptions that attackers cannot access the isolated IC supply chain. For example, 3rd partie resources may insert hardware trojans into chips  
+- Hardware Security is basically that we want to make it harder for attackers to hurt our hardware 
 #### What do these attackers target? 
  - cryptographic functions 
  - secure architectures 
  - IP (intellectual property) 
- - machine learning models 
+ - Machine learning models 
 ### Sources: 
 https://www.mdpi.com/2079-9292/4/4/763 
 https://ieeexplore.ieee.org/abstract/document/9310331 
@@ -25,23 +25,23 @@ https://ieeexplore.ieee.org/abstract/document/9310331
 
 ### IC Lifecycle Risks 
 #### Design stage   
--relies on trusted CAD tools 
+-Relies on trusted CAD tools 
 #### Fabrication stage  
-- high risk of Trojan insertion 
+- High risk of Trojan insertion 
 #### Manufacturing stage  
-- trust depends on testing environment 
+- Trust depends on testing environment 
 ### Sources: 
 https://ieeexplore.ieee.org/abstract/document/10159361 
 
 
 # Hardware Trojans 
 
-- a malicious addition to an IC designed to compromise security or leak data. 
+- A malicious addition to an IC designed to compromise security or leak data. 
 
 #### Where can Hardware Trojans exist? 
 
 - ASICs 
-- microcontrollers 
+- Microcontrollers 
 - 3rd party components 
 - Which are usually hidden and triggered under specific conditions 
 ### Sources: 
@@ -58,7 +58,7 @@ https://ieeexplore.ieee.org/abstract/document/5406669
  - Timing side channels can show information about hidden code locations in memory.
 - Even little timing differences can help attackers bypass defenses such as Address Space Layout Randomization (ASLR).
 
-- timing side channels can identify functions, gadgets, and even system call locations inside randomized code.
+- Timing side channels can identify functions, gadgets, and even system call locations inside randomized code.
 
 - Fine grained ASLR gave the strongest defense but was still vulnerable to side-channel leakage.
 
@@ -73,9 +73,9 @@ https://dl.acm.org/doi/abs/10.1145/2660267.2660309
 
 ### FPGA security 4 main aspects
 - secure operations implemented by FPGA devices
-- utilization of FPGAs for system security enhancement
-- secure bitstream delivery to FPGA devices 
-- exploitation of FPGA devices as a attack surface of FPGA based systems 
+- Utilization of FPGAs for system security enhancement
+- Secure bitstream delivery to FPGA devices 
+- Exploitation of FPGA devices as a attack surface of FPGA based systems 
 
 there is Limited work covering security threats from malicious FPGA design software
 
