@@ -49,13 +49,25 @@ https://ieeexplore.ieee.org/abstract/document/10159361
 https://ieeexplore.ieee.org/abstract/document/5406669 
 
 # Side-Channel Attacks 
-### EM side channels
+### EM side-channels
 - Unintentional electromagnetic are for general embedded systems purposes that have been studied to be data recovery and monitoring tools for hardware security. 
 
 - EM side channels have been demonstrated on embedded cryptosystems and microprocessors but there is not much work covering the effectiveness in surveilling wireless communication between connected devices (blue tooth).  
 
+### Timing side-channels
+ - Timing side channels can show information about hidden code locations in memory.
+- Even little timing differences can help attackers bypass defenses such as Address Space Layout Randomization (ASLR).
+
+- timing side channels can identify functions, gadgets, and even system call locations inside randomized code.
+
+- Fine grained ASLR gave the strongest defense but was still vulnerable to side-channel leakage.
+
+- Timing attacks remained possible over noisy network environments.
+
 ### Sources: 
 https://dl.acm.org/doi/10.1145/3649476.3658742 
+https://dl.acm.org/doi/abs/10.1145/2660267.2660309
+
 
 # "FPGA oriented moving target defense against threats from malicious FPGA tools"
 
