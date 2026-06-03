@@ -86,9 +86,15 @@ https://ieeexplore-ieee-org.ezproxy.lib.ucalgary.ca/document/8383907
 
 # Hardware noise vs Software noise
  ### Hardware Noise
- - noise created by the PCB and peripherals.
+ - noise created by the PCB and peripherals. (capacitors, resistors, power regulators)
+ - Electromagnetic interference from close components on the board
+ - Temperature changes affecting resistance and the signal behavior
+
+
 ### Software Noise
 - system-level interferences such as other processes, interrupts, and system calls
+- Can be reduced with disabling interrupts during the measurement and fixing clock speed
+
 
 ### source
 https://arxiv.org/pdf/2410.11563
