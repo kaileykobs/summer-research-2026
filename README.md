@@ -84,8 +84,19 @@ At end of introduction in the research paper they explain how they test this.
 ### source
 https://ieeexplore-ieee-org.ezproxy.lib.ucalgary.ca/document/8383907 
 
+# Hardware noise vs Software noise
+ ### Hardware Noise
+ - noise created by the PCB and peripherals.
+### Software Noise
+- system-level interferences such as other processes, interrupts, and system calls
+
+### source
+https://arxiv.org/pdf/2410.11563
+
 # categories of hardware security
 - Physical security (the hardware itself) 
 - Software attacks on hardware 
 - Classic hardware attacks (trojans) 
 - Cryptographic hardware  
+
+
