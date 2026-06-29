@@ -105,4 +105,25 @@ https://arxiv.org/pdf/2410.11563
 - Classic hardware attacks (trojans) 
 - Cryptographic hardware  
 
+# CPA Side-Channel Attacks - steps
+### 1) collect the power traces
+- run AES device multiple times
+- for each encryption you must record the plaintext and the power consumption over time
+- each trace contains thoousands of sample points
+### 2) guess a key byte
+### 3) compute the s-box output
+- for every plaintext
+### 4) compute hyp power
+- most CPA attacks assume the device will leak Hamming weight 
+- the hamming weight will be hypothetical power consumption
+### 5) now compare with the real power traces
+- use correlation
 
+### 6) repeat this for every key guess and every time sample
+- if the graph is wrong you get 0 or near 0.
+- if correctthen a spike occurs when a s-box computation happens
+### 7) pick best key
+- this is the largest correlation peak
+
+# DPA Side-Channel attack - steps
+### 1)  
