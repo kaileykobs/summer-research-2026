@@ -126,4 +126,52 @@ https://arxiv.org/pdf/2410.11563
 - this is the largest correlation peak
 
 # DPA Side-Channel attack - steps
-### 1)  
+### 1)  collect power traces
+- run target algorithm many times with known data inputs (plaintext)
+- use oscilloscope to meaure power consumption to store captured waveforms as a dataset of power traces
+
+### 2) determine intermediate value
+- S-box or AES sub box
+- find when the operations occur in the algorithms timeline
+### 3) compute hypothetical values
+- make a list for all possible values (256 guesses for 8 bit key)
+- combine known input data with each guess to calculate internal state
+### 4) map the values to power leakage model
+- hamming weight - count number of "1's" bits in the calculated value (for data bus)
+- hamming distance - count number of shifting bits between 2 states (for regiesters)
+### 5) apply statistically correlate and extract data
+- run test to find which keys guess matches the actual recorded power traces
+- look at the peaks
+- the guess that has the highest peak is the true secret key!!!!!!!!!
+
+# problems with DPA attacks attackers face
+- high sensitivity to noise (power supply noise, measurement noise, and environment can block the signal)
+- to break things like AES it needs thousands or more (typically) captured power traces to successfully recover a key
+- power traces should be properly aligned in time so the corresponding operations occur at a consistent sample points, bad alignment reduces correlation and can degrade attack success
+
+
+### sources
+- https://yan1x0s.medium.com/side-channel-attacks-part-2-dpa-cpa-applied-on-aes-attack-66baa356f03f
+- https://keccak.team/files/NoteSideChannelAttacks.pdf
+
+
+# problem with DPA attacks secuirty issues
+- creates issues for smart cards and microcontrollers
+- attackers are able to get sensitive data without leaving digital or physical damage behind
+- these attacks can be used with availble hardware such as oscilliscopes which means pretty low costs compared to other attacks out there.
+
+
+### sources
+- https://www.rambus.com/understanding-differential-power-analysis/
+- 
+
+
+# Ghost peaks
+- many key hypotheses producing similar correlation
+- muliple peaks of simular height appear which makes it hard to 
+- ghost peaks are where many incorrect key guesses produce simular scores making it difficult to clearly identitfy correct key they occur due to noise or imperfect leakage modles which can create ghost peaks
+
+### sources
+- https://link.springer.com/chapter/10.1007/978-3-642-19574-7_17
+
+
