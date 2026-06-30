@@ -109,19 +109,23 @@ https://arxiv.org/pdf/2410.11563
 ### 1) collect the power traces
 - run AES device multiple times
 - for each encryption you must record the plaintext and the power consumption over time
-- each trace contains thoousands of sample points
+- each trace contains thousands of sample points
 ### 2) guess a key byte
+- choose 1 byte of the key to target at a time
+- for the chosen byte there will be 256 possible values(create a list of all the 256)
 ### 3) compute the s-box output
-- for every plaintext
+- for every plaintext and every guess (s-box)
+- that  gives predicted intermediate values for each plaintext, key guess pair
 ### 4) compute hyp power
 - most CPA attacks assume the device will leak Hamming weight 
-- the hamming weight will be hypothetical power consumption
+- for each of the hypothetical s-box outputs you want to count the number of 1 bits this will now become the hypothetical power consumption for that guess
 ### 5) now compare with the real power traces
-- use correlation
+- use pearson correlation to compare the values from step 4 against the real recorded power traces (step 1)
+- do for every point
 
 ### 6) repeat this for every key guess and every time sample
 - if the graph is wrong you get 0 or near 0.
-- if correctthen a spike occurs when a s-box computation happens
+- if correct then a spike occurs when a s-box computation happens
 ### 7) pick best key
 - this is the largest correlation peak
 
@@ -132,17 +136,22 @@ https://arxiv.org/pdf/2410.11563
 
 ### 2) determine intermediate value
 - S-box or AES sub box
-- find when the operations occur in the algorithms timeline
-### 3) compute hypothetical values
+- targets a single bit of the intermediate value
+### 3) guess subkey and predict the target bit
 - make a list for all possible values (256 guesses for 8 bit key)
-- combine known input data with each guess to calculate internal state
-### 4) map the values to power leakage model
-- hamming weight - count number of "1's" bits in the calculated value (for data bus)
-- hamming distance - count number of shifting bits between 2 states (for regiesters)
-### 5) apply statistically correlate and extract data
-- run test to find which keys guess matches the actual recorded power traces
-- look at the peaks
-- the guess that has the highest peak is the true secret key!!!!!!!!!
+- for each guess combine it with known plaintext to compute the intermediate value, then we will guess if the target is 0 or 1
+### 4) separate traces into 2 groups
+- from step 3 we separate all traces into 2 groups. guessed bit = 0 and guessed bit = 1
+- no hamming weight or distance needed that is only for CPA
+### 5) calculate difference of means
+- take average of all traces in the 2 groups so avg of group 0 and avg group 1
+- subtract the average traces from the other to get a single trace
+### 6) look for the spike
+- if subkey guess is right the trace shows clear spike at the time sampled where the bit is process
+- if incorrect the split is random so the trace stays flat
+### 7) repeat for all sub key guesses
+- the highest peak is the correct key byte
+- do this for all to get the full key
 
 # problems with DPA attacks attackers face
 - high sensitivity to noise (power supply noise, measurement noise, and environment can block the signal)
@@ -155,21 +164,20 @@ https://arxiv.org/pdf/2410.11563
 - https://keccak.team/files/NoteSideChannelAttacks.pdf
 
 
-# problem with DPA attacks secuirty issues
+# problem with DPA attacks security issues
 - creates issues for smart cards and microcontrollers
 - attackers are able to get sensitive data without leaving digital or physical damage behind
-- these attacks can be used with availble hardware such as oscilliscopes which means pretty low costs compared to other attacks out there.
+- these attacks can be used with available hardware such as oscilloscopes which means pretty low costs compared to other attacks out there.
 
 
 ### sources
 - https://www.rambus.com/understanding-differential-power-analysis/
-- 
+
 
 
 # Ghost peaks
 - many key hypotheses producing similar correlation
-- muliple peaks of simular height appear which makes it hard to 
-- ghost peaks are where many incorrect key guesses produce simular scores making it difficult to clearly identitfy correct key they occur due to noise or imperfect leakage modles which can create ghost peaks
+- ghost peaks are where many incorrect key guesses produce similar scores making it difficult to clearly identify correct key they occur due to noise or imperfect leakage models which can create ghost peaks
 
 ### sources
 - https://link.springer.com/chapter/10.1007/978-3-642-19574-7_17
