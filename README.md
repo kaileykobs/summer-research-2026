@@ -183,3 +183,28 @@ https://arxiv.org/pdf/2410.11563
 - https://link.springer.com/chapter/10.1007/978-3-642-19574-7_17
 
 
+# Difference between TinyAES128C and MBEDTLS
+- TINYAES128C - single purpose aes implementation. Just a AES block cipher and nothing else, it is very small (couple hundred KB source wise, tine compiled foot print), there is no hashing no RSA no TLS no key exchange just the aes 
+- MBEDTLS - bigger, it has AES plus full tls 1.2/1.3 stack, ECC, SHA, RSA, HMAC, X.509 certificates, random number generation, key exchange protocals. 
+- Main difference is TINYAES128C is ultralight weight, 8 bit implementation designed for minimzing code size, the MBEDTLS uses 32-bit lookup tables which is optimized for speed and production security 
+
+### sources
+- https://github.com/kokke/tiny-AES-C 
+
+# Testing different aes
+### TINYAES128C
+- Starting at 50 traces - 0.90 correlation number (higher cleaner signal easier to hack), (40 traces) correct key - at 40 traces or lower all 16 bytes are clear 
+
+### MBEDTLS
+- MBEDTLS - at 50 traces 0.87 correlation number (lower noiser harder to hack), (40 traces) didnt full recover the key, needs 50 or higher to resolve the key meaning more side channel resilient 
+
+### Shuffled AES 
+
+
+### claude implementation
+
+### chat gtp implementation
+
+### did not work with Chipwhisper nano
+- MASKEDAES 
+- SIMPLEAES 
