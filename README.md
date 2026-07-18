@@ -206,14 +206,15 @@ https://arxiv.org/pdf/2410.11563
 - 1000 traces - key still not recovered at 1000 traces, masked aes is considered the strongest and is also the most studied side channel resilient aes
 - ![alt text](image-1.png)
 - ![alt text](image-2.png)
+- Lastly, I tried 5000 traces. many of the PGE lines started trending toward 0, showing the attack is beginning to make progress, but none had fully reached 0 yet. This may show masked-aes-c is a strong implementation against a basic CPA attack. 
 
-## overall reveiw on masked-aes-c
+#### overall review on masked-aes-c
 - Masking is usually considered a strong side-channel countermeasure because it removes correlation between the secret value and the physical computation at the data level. 
 
 https://github.com/CENSUS/masked-aes-c/tree/main
 
-### 
-
+###  AES Implementation wrote in C with MASK countermeasure
+- 
 
 https://github.com/jcalabres/AES-C
 ### 
