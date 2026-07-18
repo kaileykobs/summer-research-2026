@@ -199,35 +199,29 @@ https://arxiv.org/pdf/2410.11563
 - MBEDTLS - at 50 traces 0.87 correlation number (lower noiser harder to hack), (40 traces) didnt full recover the key, needs 50 or higher to resolve the key meaning more side channel resilient 
 
 ### masked-aes-c
-- following link to this github i tried this masked implemenetation
 - The masked-aes-c implementation hides the real AES data and key by combining them with random values (masking) at every step, so the actual secret values are never directly processed by the chip.
-- 
+- tried 100 traces key was not guessed
+- then tried 500 traces we can see that it is not really settling down but it is getting closer
+- ![alt text](image.png)
+- 1000 traces - key still not recovered at 1000 traces, masked aes is considered the strongest and is also the most studied side channel resilient aes
+- ![alt text](image-1.png)
+- ![alt text](image-2.png)
+
+## overall reveiw on masked-aes-c
+- Masking is usually considered a strong side-channel countermeasure because it removes correlation between the secret value and the physical computation at the data level. 
+
 https://github.com/CENSUS/masked-aes-c/tree/main
 
 ### 
 
+
+https://github.com/jcalabres/AES-C
 ### 
 
-### 
+### AI created implementation
+- 
 
 
 ### did not work with Chipwhisper nano
 #### MASKEDAES 
-- did not work because
-#### SIMPLEAES 
-- did not work becasue
-
-
-# test with multiple runs
-
-
-
-# changing plain text
-
-
-# more implementations ae (cost difference?)
-
-
-# ai implementation
-
-# Software based mitagations for side channel resilience (ultra low cost)
+- did not work because it requires a Cortex-M3/M4 architecture, a  architecture limitation for masked AES on Nano's Cortex-M0.
