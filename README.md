@@ -198,13 +198,36 @@ https://arxiv.org/pdf/2410.11563
 ### MBEDTLS
 - MBEDTLS - at 50 traces 0.87 correlation number (lower noiser harder to hack), (40 traces) didnt full recover the key, needs 50 or higher to resolve the key meaning more side channel resilient 
 
-### Shuffled AES 
+### masked-aes-c
+- following link to this github i tried this masked implemenetation
+- The masked-aes-c implementation hides the real AES data and key by combining them with random values (masking) at every step, so the actual secret values are never directly processed by the chip.
+- 
+https://github.com/CENSUS/masked-aes-c/tree/main
 
+### 
 
-### claude implementation
+### 
 
-### chat gtp implementation
+### 
+
 
 ### did not work with Chipwhisper nano
-- MASKEDAES 
-- SIMPLEAES 
+#### MASKEDAES 
+- did not work because
+#### SIMPLEAES 
+- did not work becasue
+
+
+# test with multiple runs
+
+
+
+# changing plain text
+
+
+# more implementations ae (cost difference?)
+
+
+# ai implementation
+
+# Software based mitagations for side channel resilience (ultra low cost)
