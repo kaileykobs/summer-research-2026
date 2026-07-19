@@ -216,7 +216,7 @@ https://arxiv.org/pdf/2410.11563
 https://github.com/CENSUS/masked-aes-c/tree/main
 
 ###  AES Implementation wrote in C with MASK countermeasure
-- 
+- started with 100 traces looked very odd so i checked to see if it was working correctly and it was not so now i am to look at what happened (COME BACK)
 
 https://github.com/jcalabres/AES-C
 ### 
