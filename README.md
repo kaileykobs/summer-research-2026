@@ -195,8 +195,10 @@ https://arxiv.org/pdf/2410.11563
 ### TINYAES128C
 - Starting at 50 traces - 0.90 correlation number (higher cleaner signal easier to hack), (40 traces) correct key - at 40 traces or lower all 16 bytes are clear 
 
+
 ### MBEDTLS
 - MBEDTLS - at 50 traces 0.87 correlation number (lower noiser harder to hack), (40 traces) didnt full recover the key, needs 50 or higher to resolve the key meaning more side channel resilient 
+
 
 ### masked-aes-c
 - The masked-aes-c implementation hides the real AES data and key by combining them with random values (masking) at every step, so the actual secret values are never directly processed by the chip.
@@ -226,3 +228,6 @@ https://github.com/jcalabres/AES-C
 ### did not work with Chipwhisper nano
 #### MASKEDAES 
 - did not work because it requires a Cortex-M3/M4 architecture, a  architecture limitation for masked AES on Nano's Cortex-M0.
+
+#### AESSIMPLE
+- Attempted to build this target, but found that the required source folder (crypto/straightforward-aes/) does not exist in the ChipWhisperer firmware repository, despite Makefile.straightforward-aes and the AESSIMPLE Makefile.crypto entry referencing it. This implementation could not be tested as a result.
