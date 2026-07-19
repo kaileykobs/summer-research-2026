@@ -216,12 +216,15 @@ https://arxiv.org/pdf/2410.11563
 https://github.com/CENSUS/masked-aes-c/tree/main
 
 ###  AES Implementation wrote in C with MASK countermeasure
-- started with 100 traces looked very odd so i checked to see if it was working correctly and it was not so now i am to look at what happened (COME BACK)
+- started with 100 traces the graph seemed off
+- checked correctness by comparing the board's output against a reference AES-128 
+  implementation for the same key and plaintext the ciphertext did not match, 
+  meaning this implementation does not produce correct AES output.
 
 https://github.com/jcalabres/AES-C
 ### 
 
-### AI created implementation
+### AI created implementation (aes128-ai)
 - 
 
 
