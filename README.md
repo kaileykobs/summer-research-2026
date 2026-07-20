@@ -215,6 +215,26 @@ https://arxiv.org/pdf/2410.11563
 
 https://github.com/CENSUS/masked-aes-c/tree/main
 
+
+### 
+
+### AI created implementation (aes128-ai)
+- Asked the AI for a standard AES-128 block cipher implementation in C, with no specific security requirements.
+- The implementation uses direct S-box table lookups with no side-channel countermeasures. Its comments note it is not constant-time and describe it as a "convenient leaky target for analysis."
+- Verified correctness against a standard AES-128 reference before testing.
+- The key was fully recovered in under 50 traces, most bytes resolved by 20 traces, all was solved by 40 traces.
+- This shows that even a completely independently written implementation leaks just as easily as TinyAES128C when no countermeasure is included, reinforcing that implementation style alone isn't enough for side-channel resistance we need countermeasures (masking).
+
+### (a stronger ai creation)
+
+
+### did not work with Chipwhisper nano or just did not work
+#### MASKEDAES 
+- did not work because it requires a Cortex-M3/M4 architecture, a  architecture limitation for masked AES on Nano's Cortex-M0.
+
+#### AESSIMPLE
+- Attempted to build this target, but found that the required source folder (crypto/straightforward-aes/) does not exist in the ChipWhisperer firmware repository, despite Makefile.straightforward-aes and the AESSIMPLE Makefile.crypto entry referencing it. This implementation could not be tested as a result.
+
 ###  AES Implementation wrote in C with MASK countermeasure
 - started with 100 traces the graph seemed off
 - checked correctness by comparing the board's output against a reference AES-128 
@@ -222,15 +242,3 @@ https://github.com/CENSUS/masked-aes-c/tree/main
   meaning this implementation does not produce correct AES output.
 
 https://github.com/jcalabres/AES-C
-### 
-
-### AI created implementation (aes128-ai)
-- 
-
-
-### did not work with Chipwhisper nano
-#### MASKEDAES 
-- did not work because it requires a Cortex-M3/M4 architecture, a  architecture limitation for masked AES on Nano's Cortex-M0.
-
-#### AESSIMPLE
-- Attempted to build this target, but found that the required source folder (crypto/straightforward-aes/) does not exist in the ChipWhisperer firmware repository, despite Makefile.straightforward-aes and the AESSIMPLE Makefile.crypto entry referencing it. This implementation could not be tested as a result.
