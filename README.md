@@ -216,17 +216,20 @@ https://arxiv.org/pdf/2410.11563
 https://github.com/CENSUS/masked-aes-c/tree/main
 
 
-### 
+### dhuertas/AES
+- 
+https://github.com/dhuertas/AES/tree/master
 
-### AI created implementation (aes128-ai)
+
+### AI created implementation (aes128-ai) (claude)
 - Asked the AI for a standard AES-128 block cipher implementation in C, with no specific security requirements.
 - The implementation uses direct S-box table lookups with no side-channel countermeasures. Its comments note it is not constant-time and describe it as a "convenient leaky target for analysis."
 - Verified correctness against a standard AES-128 reference before testing.
 - The key was fully recovered in under 50 traces, most bytes resolved by 20 traces, all was solved by 40 traces.
 - This shows that even a completely independently written implementation leaks just as easily as TinyAES128C when no countermeasure is included, reinforcing that implementation style alone isn't enough for side-channel resistance we need countermeasures (masking).
 
-### (a stronger ai creation)
-
+### AI created implemenetation (CHATGPT)
+- chatgpt would not give me a implementation.
 
 ### did not work with Chipwhisper nano or just did not work
 #### MASKEDAES 
