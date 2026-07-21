@@ -216,9 +216,7 @@ https://arxiv.org/pdf/2410.11563
 https://github.com/CENSUS/masked-aes-c/tree/main
 
 
-### dhuertas/AES
-- 
-https://github.com/dhuertas/AES/tree/master
+### 
 
 
 ### AI created implementation (aes128-ai) (claude)
@@ -231,7 +229,7 @@ https://github.com/dhuertas/AES/tree/master
 ### AI created implemenetation (CHATGPT)
 - chatgpt would not give me a implementation.
 
-### did not work with Chipwhisper nano or just did not work
+## did not work with Chipwhisper nano or just did not work
 #### MASKEDAES 
 - did not work because it requires a Cortex-M3/M4 architecture, a  architecture limitation for masked AES on Nano's Cortex-M0.
 
@@ -245,3 +243,9 @@ https://github.com/dhuertas/AES/tree/master
   meaning this implementation does not produce correct AES output.
 
 https://github.com/jcalabres/AES-C
+
+### dhuertas/AES
+- did not compile
+- An attempt was made to integrate the open source AES implementation by Dani Huertas into the ChipWhisperer Nano firmware. The implementation follows the FIPS-197 AES specification, it was designed as a standalone software implementation rather than for the ChipWhisperer firmware architecture.
+
+https://github.com/dhuertas/AES/tree/master
