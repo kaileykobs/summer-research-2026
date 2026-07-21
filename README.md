@@ -183,13 +183,37 @@ https://arxiv.org/pdf/2410.11563
 - https://link.springer.com/chapter/10.1007/978-3-642-19574-7_17
 
 
-# Difference between TinyAES128C and MBEDTLS
-- TINYAES128C - single purpose aes implementation. Just a AES block cipher and nothing else, it is very small (couple hundred KB source wise, tine compiled foot print), there is no hashing no RSA no TLS no key exchange just the aes 
-- MBEDTLS - bigger, it has AES plus full tls 1.2/1.3 stack, ECC, SHA, RSA, HMAC, X.509 certificates, random number generation, key exchange protocals. 
-- Main difference is TINYAES128C is ultralight weight, 8 bit implementation designed for minimzing code size, the MBEDTLS uses 32-bit lookup tables which is optimized for speed and production security 
-
 ### sources
 - https://github.com/kokke/tiny-AES-C 
+
+# Difference between each AES implemenation 
+### TINYAES128C
+- Lightweight standalone AES-128 implementation that only provides the AES block cipher functionality.
+- Does not include additional protocols such as TLS, hashing algorithms, or key exchange mechanisms. 
+- prioritizes small code size and simplicity
+- dowside is fewer optimizations and no side-channel protection
+
+
+### MBEDTLS
+- it has AES plus full tls 1.2/1.3 stack, ECC, SHA, RSA, HMAC, X.509 certificates, random number generation, key exchange protocals. 
+- the MBEDTLS uses 32-bit lookup tables which is optimized for speed and production security 
+- has more optimized code, configuration options, integration with other security features
+- not automatically side channel secure it is secure toward normal cryptographic attacks but from physical attack not so much.
+- down side it is larger than TinyAES
+
+### masked-aes-c
+- the secret key is split with a random value
+- so power leakage is no longer directly correlated with key
+- this worked will with a basic CPA attack
+- downsides more computation, more memory, slower
+
+### AI created implementation (aes128-ai) (claude)
+- uses normal s box table, had no masking, no constant time protection
+- similar to TinyAES, written differently
+
+### AI vs TINYAES128C
+- difference between the AI implementation and the TINYAES128C is that
+
 
 # Testing different aes
 ### TINYAES128C
@@ -253,10 +277,8 @@ https://github.com/dhuertas/AES/tree/master
 
 # results
 ### changing plaintexts
-- 
-- 
-- 
-- 
+- this line "key, text = ktp.next()" in the chip whisper code was used to generate different plaintext values for each trace while maintaining a fixed key. This allows multiple power traces with varying inputs to be collected for CPA analysis. (this is counter)
+- if i were to use random plaintexts the results from each implementation would be harder to compare then using the counter method
 
 ### difference in cost
 - 
@@ -264,4 +286,6 @@ https://github.com/dhuertas/AES/tree/master
 - 
 - 
 
-### 
+### Why it is diffucult to find AES implementation for chip whisper nano
+- 
+- 
