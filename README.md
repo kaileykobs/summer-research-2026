@@ -249,3 +249,19 @@ https://github.com/jcalabres/AES-C
 - An attempt was made to integrate the open source AES implementation by Dani Huertas into the ChipWhisperer Nano firmware. The implementation follows the FIPS-197 AES specification, it was designed as a standalone software implementation rather than for the ChipWhisperer firmware architecture.
 
 https://github.com/dhuertas/AES/tree/master
+
+
+# results
+### changing plaintexts
+- 
+- 
+- 
+- 
+
+### difference in cost
+- 
+- 
+- 
+- 
+
+### 
