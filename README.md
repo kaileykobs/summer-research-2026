@@ -212,10 +212,12 @@ https://arxiv.org/pdf/2410.11563
 - similar to TinyAES, written differently
 
 ### AI vs TINYAES128C
-- difference between the AI implementation and the TINYAES128C is that
+- Both implement the standard AES-128 algorithm but have different design goals.
+- The AI AES implementation follows a reference-style structure where each AES transformation is separated into individual functions. 
+- TinyAES128C does the same AES operations but uses a more compact embedded design, it reduces code size and memory usage by simplifying the implementation and removing unnecessary functionality.
+- Both use standard S-box lookups without side channel countermeasures, resulting in similar CPA vulnerability despite different code structures.
 
-
-# Testing different aes
+# Testing different AES
 ### TINYAES128C
 - Starting at 50 traces - 0.90 correlation number (higher cleaner signal easier to hack), (40 traces) correct key - at 40 traces or lower all 16 bytes are clear 
 
@@ -281,11 +283,12 @@ https://github.com/dhuertas/AES/tree/master
 - if i were to use random plaintexts the results from each implementation would be harder to compare then using the counter method
 
 ### difference in cost
-- 
+#### based on traces
+- masked AES will have high cost, mbedtls will have a medium cost, and tinyaes/AI will have lowest cost
 - 
 - 
 - 
 
-### Why it is diffucult to find AES implementation for chip whisper nano
+### Why it is difficult to find AES implementation for chip whisper nano
 - 
 - 
