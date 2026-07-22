@@ -242,8 +242,9 @@ https://arxiv.org/pdf/2410.11563
 https://github.com/CENSUS/masked-aes-c/tree/main
 
 
-### 
-
+### AES-128-ECB
+- 
+https://github.com/halloweeks/AES-128-ECB
 
 ### AI created implementation (aes128-ai) (claude)
 - Asked the AI for a standard AES-128 block cipher implementation in C, with no specific security requirements.
