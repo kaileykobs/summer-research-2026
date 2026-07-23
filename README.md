@@ -211,6 +211,13 @@ https://arxiv.org/pdf/2410.11563
 - uses normal s box table, had no masking, no constant time protection
 - similar to TinyAES, written differently
 
+### AES-128-ECB
+- Header-only implementation (all code lives in a single .h file, no .c file)
+- Uses T-tables instead of a plain S-box, which trades more memory (flash) for faster encryption.
+- No masking, no constant-time protection
+- Downside is larger code size due to the T-tables
+
+
 ### AI vs TINYAES128C
 - Both implement the standard AES-128 algorithm but have different design goals.
 - The AI AES implementation follows a reference-style structure where each AES transformation is separated into individual functions. 
@@ -243,7 +250,7 @@ https://github.com/CENSUS/masked-aes-c/tree/main
 
 
 ### AES-128-ECB
-- 
+- recovered by 100 traces (always 100 is the because t table)
 https://github.com/halloweeks/AES-128-ECB
 
 ### AI created implementation (aes128-ai) (claude)
@@ -281,7 +288,7 @@ https://github.com/dhuertas/AES/tree/master
 # results
 ### changing plaintexts
 - this line "key, text = ktp.next()" in the chip whisper code was used to generate different plaintext values for each trace while maintaining a fixed key. This allows multiple power traces with varying inputs to be collected for CPA analysis. (this is counter)
-- if i were to use random plaintexts the results from each implementation would be harder to compare then using the counter method
+- 
 
 ### difference in cost
 #### based on traces
