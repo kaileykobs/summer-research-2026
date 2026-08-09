@@ -288,15 +288,4 @@ https://github.com/dhuertas/AES/tree/master
 # results
 ### changing plaintexts
 - this line "key, text = ktp.next()" in the chip whisper code was used to generate different plaintext values for each trace while maintaining a fixed key. This allows multiple power traces with varying inputs to be collected for CPA analysis. (this is counter)
-- 
 
-### difference in cost
-#### based on traces
-- masked AES will have high cost, mbedtls will have a medium cost, and tinyaes/AI will have lowest cost
-- 
-- 
-- 
-
-### Why it is difficult to find AES implementation for chip whisper nano
-- 
-- 
