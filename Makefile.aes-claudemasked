@@ -1,0 +1,6 @@
+CRYPTO_LIB = aes-claudemasked
+SRC += aes-independant.c aes128_masked.c aes128.c mask_rng_host.c
+CDEFS += -DCLAUDEMASKED
+VPATH += :$(FIRMWAREPATH)/crypto/$(CRYPTO_LIB)
+EXTRAINCDIRS += $(FIRMWAREPATH)/crypto/$(CRYPTO_LIB)
+

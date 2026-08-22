@@ -1,0 +1,5 @@
+CRYPTO_LIB = masked-census
+SRC += aes.c aes-independant.c
+CDEFS += -DMASKEDCENSUS -DMASKED=1
+VPATH += :$(FIRMWAREPATH)/crypto/$(CRYPTO_LIB)
+EXTRAINCDIRS += $(FIRMWAREPATH)/crypto/$(CRYPTO_LIB)

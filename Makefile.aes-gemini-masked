@@ -1,0 +1,5 @@
+CRYPTO_LIB = aes-gemini-masked
+SRC += aes-independant.c aes_masked.c
+CDEFS += -DGEMINIMASKED
+VPATH += :$(FIRMWAREPATH)/crypto/$(CRYPTO_LIB)
+EXTRAINCDIRS += $(FIRMWAREPATH)/crypto/$(CRYPTO_LIB)

@@ -1,0 +1,4 @@
+CRYPTO_LIB = dhuertas-aes
+SRC += aes.c aes-independant.c
+VPATH += :$(FIRMWAREPATH)/crypto/$(CRYPTO_LIB)
+EXTRAINCDIRS += $(FIRMWAREPATH)/crypto/$(CRYPTO_LIB)

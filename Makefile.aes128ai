@@ -1,0 +1,5 @@
+CRYPTO_LIB = aes128-ai
+SRC += aes128.c aes-independant.c
+CDEFS += -DAES128AI
+VPATH += :$(FIRMWAREPATH)/crypto/$(CRYPTO_LIB)
+EXTRAINCDIRS += $(FIRMWAREPATH)/crypto/$(CRYPTO_LIB)

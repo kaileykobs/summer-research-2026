@@ -1,0 +1,5 @@
+CRYPTO_LIB = aes-copilot
+SRC += aes-independant.c aes128_block.c
+CDEFS += -DCOPILOT
+VPATH += :$(FIRMWAREPATH)/crypto/$(CRYPTO_LIB)
+EXTRAINCDIRS += $(FIRMWAREPATH)/crypto/$(CRYPTO_LIB)
